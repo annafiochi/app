@@ -1,13 +1,23 @@
-import React from "react";
-import "./card.module.css";
+import React from 'react';
+import Image from 'next/image';
+import styles from './Card.module.css';
 
 const Card = ({ image, description, price }) => {
   return (
-    <div className="card">
-      <img src={image} alt="Card" className="card-image" />
-      <div className="card-content">
-        <p className="card-description">{description}</p>
-        <p className="card-price">R$ {price.toFixed(2)}</p>
+    <div className={styles.card}>
+      <div className={styles.imageWrapper}>
+        <Image 
+          src={image}
+          alt={description}
+          width={220}
+          height={140}
+          layout="responsive"
+          className={styles.cardImage}
+        />
+      </div>
+      <div className={styles.cardContent}>
+        <p className={styles.cardDescription}>{description}</p>
+        <span className={styles.cardPrice}>R$ {price.toFixed(2)}</span>
       </div>
     </div>
   );
